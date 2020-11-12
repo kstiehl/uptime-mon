@@ -14,4 +14,4 @@ stages:
     jobs:
       - job: firstjob
         steps:
-          - bash: "echo Hello World | tee > test.txt"
+          - bash: "echo Hello World | tee test.txt"
