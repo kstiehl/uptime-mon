@@ -17,3 +17,11 @@ stages:
           - bash: "echo Hello World | tee test.txt"
           - publish: $(System.DefaultWorkingDirectory)/test.txt
             artifact: test
+  - stage: second
+    jobs:
+      - job: download
+        steps:
+          - download: current
+            artifact: test
+          - bash: cat test.txt
+
