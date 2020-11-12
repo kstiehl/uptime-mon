@@ -24,7 +24,12 @@ stages:
     jobs:
       - job: download
         steps:
-          - download: current
-            artifact: test
-          - bash: cat test.txt
+          - task: DownloadBuildArtifacts@0
+            inputs:
+              buildType: 'current'
+              downloadType: 'single'
+              artifactName: 'test'
+              downloadPath: './'
+          - bash: ls -al
+          - bash: cat text.txt
 
