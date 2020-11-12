@@ -15,5 +15,5 @@ stages:
       - job: firstjob
         steps:
           - bash: "echo Hello World | tee test.txt"
-          - publish: $(System.DefaultWorkingDirectory)/bin/WebApp
-            artifact: WebApp
+          - publish: $(System.DefaultWorkingDirectory)/test.txt
+            artifact: test
