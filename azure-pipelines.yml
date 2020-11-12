@@ -15,8 +15,11 @@ stages:
       - job: firstjob
         steps:
           - bash: "echo Hello World | tee test.txt"
-          - publish: $(System.DefaultWorkingDirectory)/test.txt
-            artifact: test
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: './test.txt'
+              ArtifactName: 'test'
+              publishLocation: 'Container'
   - stage: second
     jobs:
       - job: download
